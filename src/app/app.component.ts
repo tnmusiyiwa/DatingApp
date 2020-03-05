@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './_services/auth.service';
+import { HammerGestureConfig } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
