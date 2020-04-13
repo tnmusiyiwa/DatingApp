@@ -1,15 +1,16 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
@@ -25,7 +26,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
-import {MemberEditComponent} from './members/member-edit/member-edit.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotosEditorComponent } from './members/photos-editor/photos-editor.component';
@@ -34,10 +35,10 @@ export function tokenGetter() {
    return localStorage.getItem('token');
 }
 
-export class CustomHammerConfig extends HammerGestureConfig  {
+export class CustomHammerConfig extends HammerGestureConfig {
    overrides = {
-       pinch: { enable: false },
-       rotate: { enable: false }
+      pinch: { enable: false },
+      rotate: { enable: false }
    };
 }
 
@@ -60,9 +61,11 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       BrowserAnimationsModule,
       NgxGalleryModule,
       BsDropdownModule.forRoot(),
+      BsDatepickerModule.forRoot(),
       TabsModule.forRoot(),
       FileUploadModule,
       JwtModule.forRoot({
